@@ -5,7 +5,7 @@
 
 * [2. Css](Css/README.md)
   * [2.1. 什么是css盒模型](Css/book1.md#什么是css盒模型)
-  * [2.2. 什么时候是BFC](Css/book1.md#什么时候是BFC)
+  * [2.2. 什么是BFC](Css/book1.md#什么是BFC)
   * [2.3. 实现 1px](Css/book1.md#实现1px)
   * [2.4. vw 与 rem 区别](Css/book1.md#vw与rem区别)
   * [2.5. cssmodules的原理](Css/book1.md#cssmodules的原理)
