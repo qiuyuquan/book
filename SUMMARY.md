@@ -7,11 +7,12 @@
   * [2.1. 什么是css盒模型](Css/book1.md#什么是css盒模型)
   * [2.2. 什么是BFC](Css/book1.md#什么是BFC)
   * [2.3. 实现 1px](Css/book1.md#实现1px)
-  * [2.4. vw 与 rem 区别](Css/book1.md#vw与rem区别)
-  * [2.5. cssmodules的原理](Css/book1.md#cssmodules的原理)
-  * [2.6. 使用 rem布局的优缺点](Css/book1.md#使用rem布局的优缺点？)
+  * [2.4. em、vw、rem区别](Css/book1.md#vw与rem区别)
+  * [2.5. css modules和scoped的原理](Css/book1.md#cssmodules的原理)
 
 * [3. Js](Js/README.md)
+  * [3.1. 什么是闭包，闭包的作用是什么](Js/book1.md)
+  * [3.1. 什么是执行上下文](Js/book1.md)
 
 * [4. Es6](Es6/README.md)
 
