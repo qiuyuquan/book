@@ -65,7 +65,22 @@
   })
   ```
 
-#### 3. node 异步
+#### 3. node内部实现
+  ![](https://segmentfault.com/img/bVbaNhj?w=865&h=374)
+  
+  如上图，node的组成分成了3个部分，有点类似于webapp的形式
+  1. node标准库，使用js编写，这部分使我们可已直接调用API
+  2. node bindings，这一部分是js与底层c/c++构建的关键
+  3. 最后是node的核心，由c/c++编写
+    v8：提供了js在非浏览器运行的环境
+    libuv：为node提供了跨平台，线程池，事件池，异步I/O能力
+    c-ares：提供了异步处理dns的能力
+    http_parser、OpenSSL、zlib 等：提供包括 http 解析、SSL、数据压缩等其他的能力
+
+  [相关文章](https://www.cnblogs.com/wxmdevelop/p/10234556.html)
+
+
+#### 3. node 异步编程
   node三大特点
     1. 单线程
     2. 非阻塞I/O
@@ -87,21 +102,6 @@
 
   主要执行过程是，当IO线程执行完毕后，将事件压入消息队列中，然后node通过循环来检测队列中的事件状态变化，如果检测到有状态变化的事件，就执行该事件对应的处理代码。
 
-#### 4. node内部组成
-  ![](https://segmentfault.com/img/bVbaNhj?w=865&h=374)
-  
-  如上图，node的组成分成了3个部分，有点类似于webapp的形式
-  1. node标准库，使用js编写，这部分使我们可已直接调用API
-  2. node bindings，这一部分是js与底层c/c++构建的关键
-  3. 最后是node的核心，由c/c++编写
-    v8：提供了js在非浏览器运行的环境
-    libuv：为node提供了跨平台，线程池，事件池，异步I/O能力
-    c-ares：提供了异步处理dns的能力
-    http_parser、OpenSSL、zlib 等：提供包括 http 解析、SSL、数据压缩等其他的能力
-
-  [相关文章](https://www.cnblogs.com/wxmdevelop/p/10234556.html)
-
-
 #### 4. 消息队列与事件循环
   > 消息队列：消息队列是一个先进先出的队列，当一个事件状态发生变化时，就将一个消息压入队列中。
   > 事件循环：事件循环是指主线程循环从消息队列中取出任务、执行的过程。
@@ -118,4 +118,19 @@
 #### 参考文章
   [nodejs 异步I/O和事件驱动](https://segmentfault.com/a/1190000005173218)
   [JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)
+
+
+## 5. node 框架
+#### 1. express
+优点：易上手、高性能、扩展性强
+* 易上手：express对web开发的相关模块进行了适度的封装，屏蔽了大量复杂繁琐的细节，让开发者只需要关注业务逻辑开发，极大的降低了入门和学习成本。
+* 高性能：express仅在web相关的node模块进行了封装和扩展，避免了过度封装的性能消耗
+* 扩展性强：基于中间件的开发模式，使得express得到扩展，和模块拆分简单、灵活、扩展性强
+
+express 的核心概念主要包括：路由、中间件、模板引擎
+
+
+#### koa2
+
+
 
