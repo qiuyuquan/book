@@ -23,6 +23,9 @@
 * [7. Vue](Vue/README.md)
 
 * [8. React](React/README.md)
+  * [8.1. react 生命周期介绍](React/book1.md)
+  * [8.2. react 的 class 组件和函数组件有什么不同](React/book1.md)
+  * [8.3. react 的 setstate 过程](React/book1.md)
 
 * [9. Webpack](Webpack/README.md)
 
