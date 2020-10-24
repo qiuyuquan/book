@@ -16,7 +16,7 @@ BFC创建
 1. float值不为none
 2. position值不为static或relative
 3. display值为inline-block，table-cell，table-caption时创建
-4. overflow值部位visibile创建
+4. overflow值不为visibile创建
 
 ### 2.3. 实现1px
 
