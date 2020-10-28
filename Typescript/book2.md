@@ -302,6 +302,7 @@ type person = {
 还有一些高级方法Required、Readonly、ReturnType等
 
 ## 参考文章
+[typescript 入门教程](https://ts.xcatliu.com/advanced/class.html)
 [typescript 高级技巧](https://shanyue.tech/post/ts-tips.html#_01-keyof)
 [1.2W字 | 了不起的 TypeScript 入门教程](https://juejin.im/post/6844904182843965453#heading-56)
 [TypeScript语法总结](https://juejin.im/post/6861525441786675208#heading-38)
