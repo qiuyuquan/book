@@ -55,9 +55,42 @@ TCP连接是双向的，因此每个方向都必须进行单独关闭，当一�
 
 Client主动关闭的情况下，Server收到Client的FIN报文时，仅仅表示Client没有数据发送给Server了；但Server可能还有数据要发送给Client，所以Server可能并不会立即关闭SOCKET，而是先回复一个ACK报文，告诉Client**“你发的FIN报文我收到了”**。只有等到Server所有的报文都发送完了，才发送FIN报文。也就是说，被动关闭方的ACK和FIN报文多数情况下都是分开发送的，所以需要四次交互。
 
+[面试官，不要再问我三次握手和四次挥手](https://zhuanlan.zhihu.com/p/86426969)
 [TCP连接建立、断开过程详解](https://juejin.im/post/6844903923694698504#heading-9)
 [这次一定让你记住 TCP 三次握手、四手挥手！](https://juejin.im/post/6882667709847339016#heading-8)
 [TCP建立连接三次握手和释放连接四次握手](https://blog.csdn.net/guyuealian/article/details/52535294)
 
 
 ### 7. 浏览器解析html
+**原理**
+1. 解析：拉取网络或磁盘上读取的html原始字节码，通过设置的charset编码，转换成相字符
+2. token化：通过词法分析器，将字符串解析成token，token中标注当前是开始标签、结束标签或者文本标签
+3. 生成Nodes并构建对应的树（DOMTree、CssTree）
+
+**过程**
+* 构建DOMTree
+* 构建CSSTree
+* 根据DOMTree和CSSTree生成render tree，DOM树上每一个节点对应着网页里每一个元素，CssTree树上每个节点对应着网页里每个元素的样式，合并生成render tree
+* 布局：根据渲染树来布局，弄清楚每个节点在页面中的确切位置和大小，布局完成后，浏览器立即发出“Paint Setup”和“Paint”事件，然后渲染
+* 渲染：讲渲染树中的每个节点转换成屏幕上的实际像素
+
+**注意**
+1. dom的解析过程分为阻塞性和非阻塞性，一般情况下css资源是不会阻塞dom，但是实际上dom树的构建树是受js的阻塞的，而js又可以去操作css。因此浏览器在script标签时将标签之前全部css请求并完成，然后执行脚本，再到dom的构建完成，执DOMContentloaded。
+
+2. js的资源又分为
+  * 外联js：阻塞DOM渲染
+  * 外联defer的js：html遇到此标签时，不阻塞DOM解析，浏览器新开一个队列下载此js，待DOM解析完成后执行。由于dom的构建完成是有浏览器派发DOMContentLoaded来决定，而defer的js是在DOM解析完成后，派发DOMContentLoader之前执行，所以也叫成阻塞DOM渲染
+  * 外联async的js：不阻塞html的解析过程，但是这里说的不阻塞是指下载过程不阻塞html的解析。如果下载完成了，但DOM还没解析完成，一样会暂停解析html，先执行脚本再解析html。如果DOM解析完成了，js还没下载完成，则不阻塞DOMContentLoaded的派发。
+
+3. css的加载
+  * css加载不会阻塞DOM树的解析
+  * css加载会阻塞DOM树的渲染
+  * css加载会阻塞后面js的执行
+
+**为什么操作DOM慢**
+1. 因为DOM属于渲染引擎的东西，而js是属于js引擎的，在操作js改变dom时，实际上是两个线程之前的通信，操作DOM的次数多的话，势必会带来性能上的消耗。
+2. 操作DOM会带来重绘与回流的情况，需要浏览器重新的渲染。
+
+[浏览器知识](https://github.com/LiangJunrong/document-library/tree/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E6%B5%8F%E8%A7%88%E5%99%A8)
+[深入浅出浏览器渲染原理](https://blog.fundebug.com/2019/01/03/understand-browser-rendering/)
+[瀏覽器是如何解析html的？](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/647774/)
