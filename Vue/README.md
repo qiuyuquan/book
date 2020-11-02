@@ -1,4 +1,4 @@
-####  为什么在 Vue3.0 采用了 Proxy，抛弃了 Object.defineProperty？
+#### 为什么在 Vue3.0 采用了 Proxy，抛弃了 Object.defineProperty？
 #### 谈谈vue初始化从数据到视图的过程，能详细些吗？
 #### 组件之间通信方式有哪些？
 #### 什么是插槽、具名插槽、作用域插槽？
