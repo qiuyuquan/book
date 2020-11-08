@@ -20,10 +20,11 @@
   * [5.1. 浏览器渲染过程](浏览器与Http/book1.md)
   * [5.2. 浏览器缓存过程](浏览器与Http/book2.md)
   * [5.3. 什么是跨域](浏览器与Http/book3.md)
+  * [5.4. 浏览器垃圾回收](浏览器与Http/book4.md)
   * [5.4. cdn相关知识](浏览器与Http/book4.md)
   * [5.5. http相关知识](浏览器与Http/book5.md)
-  * [5.6. websocket协议](浏览器与Http/book6.md)
-  * [5.7. https协议](浏览器与Http/book7.md)
+  * [5.6. cdn相关知识](浏览器与Http/book6.md)
+  * [5.7. websocket协议](浏览器与Http/book7.md)
 
 * [6. Http](Http/README.md)
 
