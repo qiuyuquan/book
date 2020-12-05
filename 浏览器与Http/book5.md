@@ -84,6 +84,7 @@ https = http + ssl协议
 * 保证数据传输的安全
 * 确认网站真实，防止钓鱼网站
 
+[半小时搞懂 HTTP、HTTPS和HTTP2](https://juejin.im/post/6894053426112495629)
 [HTTPS详解](https://juejin.im/post/6844903602494898183)
 [谈谈 HTTPS](https://juejin.im/post/6844903504046211079)
 [一文读懂 HTTP/2 及 HTTP/3 特性](https://blog.fundebug.com/2019/03/07/understand-http2-and-http3/)
